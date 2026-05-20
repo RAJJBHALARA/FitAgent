@@ -4,7 +4,8 @@ import { Send, Bot, User, Check, X, Mic } from 'lucide-react'
 import useFitStore from '../store'
 import { COACH_QUICK_CHIPS } from '../lib/constants'
 
-const API_BASE = 'http://localhost:8000/api'
+import CENTRAL_API_BASE from '../services/api'
+const API_BASE = `${CENTRAL_API_BASE}/api`
 
 const pageAnim = {
   initial: { opacity: 0 },

@@ -4,7 +4,8 @@
  * backend Gemini API to estimate macros from the food name.
  */
 
-const API_BASE = 'http://localhost:8000/api'
+import CENTRAL_API_BASE from './api'
+const API_BASE = `${CENTRAL_API_BASE}/api`
 
 export async function searchFood(query) {
   // Try Open Food Facts first

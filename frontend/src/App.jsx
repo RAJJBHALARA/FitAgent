@@ -11,6 +11,7 @@ import MorningCheckIn from './pages/MorningCheckIn'
 import Onboarding from './pages/Onboarding'
 import { useEffect } from 'react'
 import useFitStore from './store'
+import API_BASE from './services/api'
 
 function ProtectedRoute({ children }) {
   const { user, profile } = useFitStore()
@@ -51,7 +52,8 @@ function AppInit() {
   useEffect(() => {
     checkNewDay()
     // Fetch weather through backend proxy (hides API key)
-    fetch('http://localhost:8000/api/weather')
+    fetch(`${API_BASE}/api/weather`)
+
       .then((r) => r.json())
       .then((d) => {
         if (d.temp) setWeather({ temp: d.temp, condition: d.condition || 'Clear' })

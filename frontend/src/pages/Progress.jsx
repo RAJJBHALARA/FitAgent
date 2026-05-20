@@ -7,6 +7,8 @@ import { Card, CardHeader } from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
 import { Sheet } from '../components/ui/Sheet'
 import { calcBMI, calcWeightLost, calcWeeksToGoal, calculateStreak } from '../lib/healthLogic'
+import CENTRAL_API_BASE from '../services/api'
+
 
 const pageAnim = {
   initial: { opacity: 0, y: 20 },
@@ -64,7 +66,7 @@ export default function Progress() {
         readiness_avg: state.readiness.score || 7,
         sleep_avg: state.readiness.sleep || 6.5,
       }
-      const res = await fetch('http://localhost:8000/api/weekly-report', {
+      const res = await fetch(`${CENTRAL_API_BASE}/api/weekly-report`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ weekly_data: weeklyData }),
