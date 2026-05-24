@@ -6,6 +6,7 @@ import { Card, CardHeader } from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
 import { Badge } from '../components/ui/Badge'
 import { Sheet } from '../components/ui/Sheet'
+import API_BASE from '../services/api'
 
 const pageAnim = {
   initial: { opacity: 0, y: 20 },
@@ -134,7 +135,7 @@ export default function Workout() {
               <p style={{ fontSize: 11, color: 'var(--text-400)', marginTop: 2, fontFamily: 'var(--font-body)' }}>Auto-sync runs & rides</p>
             </div>
             <Button variant="secondary" size="sm" icon={<ExternalLink size={12} />}
-              onClick={() => window.open('http://localhost:8000/api/strava/auth', '_blank')}>Connect</Button>
+              onClick={() => window.open(`${API_BASE}/api/strava/auth`, '_blank')}>Connect</Button>
           </div>
         </Card>
       </div>
