@@ -36,7 +36,8 @@ async def strava_callback(code: str):
         })
     token_data = res.json()
     # In production, store token in Firebase
-    return {"status": "connected", "athlete": token_data.get("athlete", {})}
+    FRONTEND_URL = os.getenv("FRONTEND_URL", "https://fitagent.vercel.app")
+    return RedirectResponse(f"{FRONTEND_URL}/workout?strava=success")
 
 
 @router.get("/strava/activities")
